@@ -18,7 +18,7 @@ func NewGoTemplate(template []byte, name string) (Template, error) {
 }
 
 func (t GoTemplate) Render(data map[string]interface{}) ([]byte, error) {
-	tmpl, err := template.New(t.name).Funcs(funcMap(data)).Option("missingkey=error").Parse(string(t.content))
+	tmpl, err := template.New(t.name).Funcs(funcMap(data)).Parse(string(t.content))
 	if err != nil {
 		return nil, err
 	}
